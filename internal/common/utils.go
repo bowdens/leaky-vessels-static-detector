@@ -140,7 +140,7 @@ func ParseImageName(imageName string) (ImageName, error){
 		log.Error(errMsg)
 		return res, errors.New(errMsg)
 	}
-	re := regexp.MustCompile(`^([\w.\-\/]+)(?::([\w.\-]+))?(?:@([\w:]+))?$`)
+	re := regexp.MustCompile(`^((?:[\w:]+\/)?[\w.\-\/]+)(?::([\w.\-]+))?(?:@([\w:]+))?$`)
 	match := re.FindStringSubmatch(imageName)
 	if match != nil {
 		res.Name = match[1]
